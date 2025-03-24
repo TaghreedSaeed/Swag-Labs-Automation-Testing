@@ -33,28 +33,20 @@ public class checkout {
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
         loginPage.username();
-        Thread.sleep(4000);
 
         loginPage.password();
-        Thread.sleep(3000);
         loginPage.loginbutton();
 
     }
-//    @And("user already in the home page")
-//    public void home()
-//    {
-//
-//    }
+
 
     @Given("I have added an item to my cart")
     public void And_1() throws InterruptedException {
-        Thread.sleep(2000);
 
         driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]")).click();
-        Thread.sleep(2000);
 
         driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[3]")).click();
-        Thread.sleep(4000);
+
 
 
     }
@@ -65,35 +57,30 @@ public class checkout {
     @And("I have entered my information")
     public void And_3() throws InterruptedException {
         driver.findElement(By.id("first-name")).sendKeys("Taghreed");
-        Thread.sleep(2000);
-        ;
+
         driver.findElement(By.id("last-name")).sendKeys("Saeed");
-        Thread.sleep(2000);
 
         driver.findElement(By.id("postal-code")).sendKeys("19999");
-        Thread.sleep(4000);
+
 
     }
 
     @And("I Click on to continue button")
     public void And_4() throws InterruptedException {
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/form/div[2]/input")).click();
-        Thread.sleep(2000);
 
 
     }
     @When("I Click on to finish button")
     public void when() throws InterruptedException {
 
-        Thread.sleep(2000);
         driver.findElement(By.id("finish")).click();
 
     }
 
     @Then("I should see a confirmation message")
     public void then() throws InterruptedException {
-       // System.out.println( driver.findElement(By.xpath("/html/body/div/div/div/div[2]/h2")).getText());
-       // Thread.sleep(4000);
+
         String exp="Your order has been dispatched, and will arrive just as fast as the pony can get there!";
         String actual=driver.findElement(By.xpath("//*[@id=\"checkout_complete_container\"]/div")).getText();
         Assert.assertTrue(Objects.equals(actual, exp));
@@ -108,14 +95,13 @@ public class checkout {
     @Given("I have added multiple items to my cart")
     public void given_fun2() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]")).click();
-        Thread.sleep(2000);
+
 
         driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-bike-light\"]")).click();
-        Thread.sleep(2000);
+
 
         driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-bolt-t-shirt\"]")).click();
         driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[3]")).click();
-        Thread.sleep(4000);
 
     }
 

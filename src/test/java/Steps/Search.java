@@ -25,13 +25,12 @@ public class Search {
     }
     @When("I click on the search icon or press enter")
     public void when_2() throws InterruptedException {
-        Thread.sleep(1500);
         driver.findElement(By.id("searchBar")).sendKeys("---//**+-");
         driver.findElement(By.id("searchBar")).sendKeys(Keys.ENTER);
     }
     @Then("I should see a message indicating that no products were found")
     public void then_2() throws InterruptedException {
-        Thread.sleep(2000);
+
         String exp="We couldn’t find what you were looking for";
         String actual=driver.findElement(By.xpath("//*[@id=\"__next\"]/div/section/div/p[1]")).getText();
         Assert.assertTrue(Objects.equals(actual, exp));

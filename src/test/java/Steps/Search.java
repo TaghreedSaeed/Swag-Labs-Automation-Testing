@@ -25,8 +25,8 @@ public class Search {
     }
     @When("I click on the search icon or press enter")
     public void when_2() throws InterruptedException {
-        driver.findElement(By.id("searchBar")).sendKeys("---//**+-");
-        driver.findElement(By.id("searchBar")).sendKeys(Keys.ENTER);
+        driver.findElement(By.name("site-search")).sendKeys("---//**+-");
+        driver.findElement(By.name("site-search")).sendKeys(Keys.ENTER);
     }
     @Then("I should see a message indicating that no products were found")
     public void then_2() throws InterruptedException {
@@ -45,13 +45,14 @@ public class Search {
     @And("I enter \"laptop\" in the search bar")
     public void and_1()
     {
-        driver.findElement(By.id("searchBar")).sendKeys("Laptop");
+        driver.findElement(By.name("site-search")).sendKeys("Laptop");
 
     }
+    //*[@name="site-search"][1]
     @When("I press the Enter key on the keyboard")
     public void when()
     {
-        driver.findElement(By.id("searchBar")).sendKeys(Keys.ENTER);
+        driver.findElement(By.name("site-search")).sendKeys(Keys.ENTER);
 
 
 
